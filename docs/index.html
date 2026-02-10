@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Map Gallery</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preload" href="sep1.svg" as="image">
+<link rel="preload" href="sep2.svg" as="image">
+<link rel="preload" href="sep3.svg" as="image">
+<link rel="preload" href="sep4.svg" as="image">
+<link rel="preload" href="sep5.svg" as="image">
+<link rel="preload" href="sep6.svg" as="image">
+<link rel="preload" href="underline.svg" as="image">
+<link rel="preload" href="vert_border.svg" as="image">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <img id="sidebar-img" src="sidebar_bay_area.png" alt="" class="sidebar-img">
+  <p class="sidebar-para">
+    <span class="sidebar-dropcap-wrap" id="sidebar-cap-wrap" data-cap="black"><span class="sidebar-dropcap"></span></span>
+    <span class="sidebar-para-text">isten, computer cartography is the most enjoyable way to make dense, attractive images no one complains about. Here are my favorite map project, which are sick, but still pale imitations of Creation’s infinite texture. Maps can never be territories, but I want to make one that gets kinda close.</span>
+    <br>
+    <br
+    <span class="sidebar-para-text">Inspired, sorta? Think you can do better? Great news: <a href="https://youshouldmakemaps.com" target="_blank">you can make your own maps for fun and possibly profit.</a></span>
+  </p>
+</aside>
+<div class="main">
+<script type="application/json" id="map-config">
+{
+  "ca_calligraphy": {"bg":"rgb(4,28,34)","fg":"#fff","oc":"#04262E","tabBorder":"#44777e","navColor":"rgb(19,40,45)","sepColor":"rgb(21,45,50)","sidebar":"sidebar_CA.png","sidebarFg":"rgb(40,69,74)","noiseColor":"rgb(5,38,46)","w":6633,"h":10038,"dl":"downloads/CA_calligraphy.jpg"},
+  "bay_area":       {"bg":"#D0E6EE","fg":"#1a1a1a","oc":"rgb(195,222,228)","tabBorder":"#1a5f6e","navColor":"rgb(198,218,225)","sepColor":"rgb(174,192,198)","sidebar":"sidebar_bay_area.png","sidebarFg":"rgb(132,189,201)","noiseColor":"rgb(195,222,228)","w":6600,"h":10200,"dl":"downloads/bay_area.jpg"},
+  "la_veg":         {"bg":"rgb(8,7,5)","fg":"#fff","oc":"rgb(20,18,12)","tabBorder":"#fff","navColor":"rgb(22,22,20)","sepColor":"rgb(25,25,22)","sidebar":"sidebar_LAveg.png","sidebarFg":"rgb(38,35,24)","noiseColor":"rgb(20,18,12)","w":7200,"h":10800,"dl":"downloads/LA_veg.jpg"},
+  "ojai":           {"bg":"rgb(197,191,179)","fg":"#1a1a1a","oc":"rgb(181,176,165)","tabBorder":"#4a4032","navColor":"rgb(189,183,173)","sepColor":"rgb(166,161,152)","sidebar":"sidebar_ojai.png","sidebarFg":"rgb(135,126,105)","noiseColor":"rgb(181,176,165)","w":10152,"h":6376,"dl":"downloads/ojai_combined.jpg"},
+  "tongass":        {"bg":"rgb(8,7,5)","fg":"#fff","oc":"rgb(20,18,12)","tabBorder":"#fff","navColor":"rgb(22,22,20)","sepColor":"rgb(25,25,22)","sidebar":"sidebar_tongass.png","sidebarFg":"rgb(38,35,24)","noiseColor":"rgb(20,18,12)","w":7200,"h":10800,"dl":"downloads/tongass.jpg"},
+  "world":          {"bg":"rgb(8,7,5)","fg":"#fff","oc":"rgb(20,18,12)","tabBorder":"#fff","navColor":"rgb(22,22,20)","sepColor":"rgb(25,25,22)","sidebar":"sidebar_worldmap.png","sidebarFg":"rgb(38,35,24)","noiseColor":"rgb(20,18,12)","w":36001,"h":21601,"dl":"downloads/world.png"}
+}
+</script>
+<nav class="tabs">
+    <a href="#ca_calligraphy" class="tab" data-s="ca_calligraphy">California</a>
+    <span class="tab-sep" data-svg="sep1.svg"></span>
+    <a href="#bay_area" class="tab" data-s="bay_area">Bay Area</a>
+    <span class="tab-sep" data-svg="sep2.svg"></span>
+    <a href="#la_veg" class="tab" data-s="la_veg">Los Angeles Vegetation</a>
+    <span class="tab-sep" data-svg="sep3.svg"></span>
+    <a href="#ojai" class="tab" data-s="ojai">Ojai Trails</a>
+    <span class="tab-sep" data-svg="sep4.svg"></span>
+    <a href="#tongass" class="tab" data-s="tongass">Trees of the Tongass National Forest</a>
+    <span class="tab-sep" data-svg="sep5.svg"></span>
+    <a href="#world" class="tab" data-s="world">World Map</a>
+    <span class="tab-sep" data-svg="sep6.svg"></span>
+    <a href="#onepage" class="tab" data-s="onepage">One Page Mode</a>
+</nav>
+<div class="border-deco-desktop"></div>
+<div class="map-select">
+  <select id="mapsel"></select>
+</div>
+<div class="border-deco-mobile"></div>
+<div class="content">
+  <p class="desc" id="desc"></p>
+  <div id="dlwrap"></div>
+  <div id="viewers"></div>
+</div>
+</div>
+<a href="https://evanapplegate.com" class="site-link" target="_blank">evanapplegate.com</a>
+</div>
+<div id="errlog"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/5.0.1/openseadragon.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
