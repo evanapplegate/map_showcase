@@ -841,6 +841,10 @@ body.grid-mode .viewer-wrap {
   margin-bottom: 12px;
 }
 
+.grid-intro {
+  display: none;
+}
+
 @media (max-width: 600px) {
   body.grid-mode #viewers {
     grid-template-columns: 1fr;
@@ -849,6 +853,35 @@ body.grid-mode .viewer-wrap {
   body.grid-mode .osd-viewer {
     height: 70vh;
     min-height: 400px;
+  }
+
+  body.grid-mode .sidebar {
+    display: none;
+  }
+
+  body.grid-mode .grid-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 16px 16px;
+  }
+
+  body.grid-mode .grid-intro-img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  body.grid-mode .grid-intro .sidebar-para {
+    font-size: 14px;
+    line-height: 1.6;
+    font-style: italic;
+    text-align: left;
+    opacity: .85;
+    width: 100%;
+    padding: 0;
+    margin: 0;
   }
 }
 

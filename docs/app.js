@@ -247,6 +247,20 @@
       document.getElementById("sidebar-img").src = "sidebar_onepage.png";
       document.getElementById("desc").textContent = "";
 
+      // On mobile one-page, clone sidebar intro above the grid
+      if (window.innerWidth <= 600) {
+        var intro = document.createElement("div");
+        intro.className = "grid-intro";
+        var introImg = document.createElement("img");
+        introImg.src = "sidebar_onepage.png";
+        introImg.alt = "";
+        introImg.className = "grid-intro-img";
+        intro.appendChild(introImg);
+        var introPara = document.querySelector(".sidebar-para");
+        if (introPara) intro.appendChild(introPara.cloneNode(true));
+        vwrap.appendChild(intro);
+      }
+
       getMapTabs().forEach(function (tab) {
         var mc = getConfig(tab.dataset.s, tab.textContent.trim());
         var card = document.createElement("div");
@@ -327,6 +341,9 @@
     };
     img.src = svg;
   });
-  if (!location.hash) location.hash = "#" + (getMapTabs()[0] ? getMapTabs()[0].dataset.s : "bay_area");
+  if (!location.hash) {
+    var isMobile = window.innerWidth <= 600;
+    location.hash = isMobile ? "#onepage" : "#ca_calligraphy";
+  }
   route();
 })();
