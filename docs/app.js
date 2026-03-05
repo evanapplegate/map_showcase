@@ -11,7 +11,7 @@
     E.scrollTop = 1e6;
   }
   window.onerror = function (m, s, l) {
-    if (m === "Script error." && !s) return;
+    if (String(m).indexOf("Script error") === 0) return;
     err(m + " " + s + ":" + l);
   };
 
@@ -287,6 +287,7 @@
         dlrow.appendChild(makeDlLink(mc.dl, mc.dl.split("/").pop()));
         if (BUY[mc.slug]) dlrow.appendChild(makeBuyLink(BUY[mc.slug].href, BUY[mc.slug].label));
         if (BUY_BACKLIT[mc.slug]) dlrow.appendChild(makeBacklitBuyLink(BUY_BACKLIT[mc.slug]));
+        card.appendChild(dlrow);
       });
       return;
     }
