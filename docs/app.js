@@ -10,7 +10,10 @@
     E.appendChild(d);
     E.scrollTop = 1e6;
   }
-  window.onerror = function (m, s, l) { err(m + " " + s + ":" + l); };
+  window.onerror = function (m, s, l) {
+    if (m === "Script error." && !s) return;
+    err(m + " " + s + ":" + l);
+  };
 
   var M = JSON.parse(document.getElementById("map-config").textContent);
   var DESC = {
@@ -265,6 +268,7 @@
         var mc = getConfig(tab.dataset.s, tab.textContent.trim());
         var card = document.createElement("div");
         card.className = "grid-card";
+        vwrap.appendChild(card);
 
         viewers.push(buildViewer(card, mc, mc.bg, ALT[mc.slug] || null));
 
@@ -283,9 +287,6 @@
         dlrow.appendChild(makeDlLink(mc.dl, mc.dl.split("/").pop()));
         if (BUY[mc.slug]) dlrow.appendChild(makeBuyLink(BUY[mc.slug].href, BUY[mc.slug].label));
         if (BUY_BACKLIT[mc.slug]) dlrow.appendChild(makeBacklitBuyLink(BUY_BACKLIT[mc.slug]));
-        card.appendChild(dlrow);
-
-        vwrap.appendChild(card);
       });
       return;
     }
